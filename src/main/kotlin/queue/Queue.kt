@@ -40,7 +40,13 @@ class Queue<T> {
     * */
     fun dequeue(): T {
         val data = head?.data
-        head = head?.next
+
+        if (tail == head) {
+            tail = null
+            head = null
+        } else {
+            head = head?.next
+        }
 
         return data ?: throw QueueEmptyException()
     }
