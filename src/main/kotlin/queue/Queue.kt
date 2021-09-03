@@ -45,6 +45,15 @@ class Queue<T> {
         return data ?: throw QueueEmptyException()
     }
 
+    /*
+    * Returns true if and only if the queue is empty
+    *
+    * @return Boolean
+    * */
+    fun isEmpty(): Boolean {
+        return head == null
+    }
+
     class QueueEmptyException : Exception()
 
     data class Node<T>(var data: T, var next: Node<T>? = null)
